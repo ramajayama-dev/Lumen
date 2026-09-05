@@ -1,12 +1,19 @@
 #pragma once
 
+#include "Keyboard.hpp"
+#include "Seat.hpp"
+
 class InputSubsystem
 {
 public:
     InputSubsystem();
 
-    void initialize();
+    bool initialize();
+
+    Keyboard& getKeyboard();
+    Seat& getSeat();
 
 private:
-    bool initialized;
+    Keyboard keyboard;
+    Seat seat;
 };

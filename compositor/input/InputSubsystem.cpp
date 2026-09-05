@@ -1,11 +1,25 @@
 #include "InputSubsystem.hpp"
 
 InputSubsystem::InputSubsystem()
-    : initialized(false)
 {
 }
 
-void InputSubsystem::initialize()
+bool InputSubsystem::initialize()
 {
-    initialized = true;
+    seat.initialize();
+
+    if (!keyboard.initialize())
+        return false;
+
+    return true;
+}
+
+Keyboard& InputSubsystem::getKeyboard()
+{
+    return keyboard;
+}
+
+Seat& InputSubsystem::getSeat()
+{
+    return seat;
 }

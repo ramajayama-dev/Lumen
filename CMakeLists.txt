@@ -11,4 +11,11 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 add_executable(lumen
     compositor/main.cpp
     compositor/input/InputSubsystem.cpp
+    compositor/input/InputManager.cpp
+    compositor/input/Keyboard.cpp
+    compositor/input/Seat.cpp
 )
+
+find_package(Threads REQUIRED)
+
+target_link_libraries(lumen PRIVATE input udev Threads::Threads)
