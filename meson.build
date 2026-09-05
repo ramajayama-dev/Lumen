@@ -8,8 +8,14 @@ project(
     ],
 )
 
+lumen_inc = include_directories('include')
+
 executable(
     'lumen',
-    'src/main.c',
+    [
+        'src/main.c',
+        'src/compositor/compositor.c',
+    ],
+    include_directories: lumen_inc,
     install: true,
 )
